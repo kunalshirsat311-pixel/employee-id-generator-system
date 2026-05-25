@@ -1,0 +1,43 @@
+#Employee ID generation system
+
+#Taking user input
+name = input('Enter your name: ')
+department = input('Enter your department: ')
+role = input('Enter your role: ')
+age = input('Enter your age: ')
+
+import random
+#Function to generate employee id
+def generate_employee_id(department_code):
+
+    random_number = random.randint(1000, 9999)
+    return f'{department_code}-{random_number}'
+
+#Creating department code
+department_word = department.split()
+department_code = ""
+for word in department_word:
+    department_code += word[0].upper()
+
+#calling function
+employee_id = generate_employee_id(department_code)
+file = open('employee.txt', 'a')
+file.write(f"{name} | {department} | {role} | {age} | {employee_id}\n")
+file.close()
+print("Generate Employee id:", employee_id)
+#Generating employee email
+email = name.lower().replace(' ', '') + '@companyname.com'
+
+#Displaying employee ID card
+print("\n====================")
+print("       EMPLOYEE ID CARD")
+print("====================")
+print(f"Name       : {name}")
+print(f"Department : {department}")
+print(f"Role       : {role}")
+print(f"Age        : {age}")
+print(f"Employee ID: {employee_id}")
+print(f"Generated Empolyee id: {employee_id}")
+print(f"Email      : {email}")
+
+print("====================")
